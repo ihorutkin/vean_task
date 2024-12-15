@@ -16,9 +16,11 @@ class BookSerializer(serializers.ModelSerializer):
 
 class BookListSerializer(serializers.ModelSerializer):
     author_name = serializers.CharField(source="author.name")
+
     class Meta:
         model = Book
         fields = ["id", "title", "author_name"]
+
 
 class BookRetrieveSerializer(BookSerializer):
     author = AuthorSerializer()

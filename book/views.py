@@ -1,7 +1,12 @@
 from rest_framework import viewsets
 
 from book.models import Author, Book
-from book.serializer import AuthorSerializer, BookSerializer, BookListSerializer, BookRetrieveSerializer
+from book.serializer import (
+    AuthorSerializer,
+    BookSerializer,
+    BookListSerializer,
+    BookRetrieveSerializer,
+)
 from book.pagination import Pagination
 
 
