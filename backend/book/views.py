@@ -16,7 +16,7 @@ class AuthorViewSet(viewsets.ModelViewSet):
     pagination_class = Pagination
 
 
-class BookVewSet(viewsets.ModelViewSet):
+class BookViewSet(viewsets.ModelViewSet):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
     pagination_class = Pagination

@@ -1,35 +1,24 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 
-export default function BookList(){
-    const [books, setBooks] = useState(null)
-    const [error, setError] = useState(null)
-    useEffect(() => {
-        const fetchData = async () => {
-            try{
-                const response = await fetch("http://localhost:8000/api/books/", {
-                    method: "GET",
-                    headers: {
-                        "Content-Type": "application/json"
-                    }
-                })
-                if (!response.ok){
-                    throw new Error(`Error: ${response.status}`)
-                }
-                const result = await response.json()
-                setBooks(result)
-            }
-            catch(err){
-                setError(err.message)
-            }
-        }
-        fetchData()
-    }, [])
-
-    if (error) return <div>Error: { error }</div>
-    return(
-        <div>
-            <h2>List of books</h2>
-            <pre>{ JSON.stringify(books, null, 2) }</pre>
+const BookList = ({ books, handleEdit, handleDelete, setCurrentBook, setIsEditing }) => {
+  return (
+    <div className="book-list">
+      {books.map((book) => (
+        <div key={book.id} className="book-item">
+          <div>
+            <h2>{book.title}</h2>
+            <p>Author: {book.author_name}</p>
+          </div>
+          <div>
+            <button onClick={() => handleEdit(book, setCurrentBook, setIsEditing)}>Edit</button>
+            <button className="delete_btn" onClick={() => handleDelete(book.id)}>
+              Delete
+            </button>
+          </div>
         </div>
-    )
-}
+      ))}
+    </div>
+  );
+};
+
+export default BookList;
