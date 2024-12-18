@@ -26,6 +26,21 @@ pip install -r requirements.txt
 python manage.py runserver
 ```
 
+## Run
+
+Run Django server
+
+```shell
+python manage.py runserver
+```
+
+Run React server
+
+```shell
+npm start
+```
+
+
 ## Features
 
 * CRUD operations for the author's model:
@@ -37,6 +52,10 @@ python manage.py runserver
 * Implemented routes for interacting with the API.
 * Correct operation of connections between books and authors is ensured.
 * Swagger documentation was added
+
+## Demo React App
+
+![img.png](images/img_5.png)
 
 ## Demo images (swagger)
 
